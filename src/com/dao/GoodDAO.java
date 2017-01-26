@@ -4,11 +4,14 @@ import java.util.List;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.entity.Good;
+import com.util.HibernateSessionFactory;
 
 /**
  * A data access object (DAO) providing persistence and search support for Good
@@ -31,7 +34,12 @@ public class GoodDAO extends BaseHibernateDAO {
 	public void save(Good transientInstance) {
 		log.debug("saving Good instance");
 		try {
-			getSession().save(transientInstance);
+			Session session = HibernateSessionFactory.getSession();
+			Transaction transaction = session.beginTransaction();			
+			session.save(transientInstance);			
+			transaction.commit();
+			HibernateSessionFactory.closeSession();
+			
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
@@ -42,7 +50,12 @@ public class GoodDAO extends BaseHibernateDAO {
 	public void delete(Good persistentInstance) {
 		log.debug("deleting Good instance");
 		try {
-			getSession().delete(persistentInstance);
+			Session session = HibernateSessionFactory.getSession();
+			Transaction transaction = session.beginTransaction();
+			session.delete(persistentInstance);
+			transaction.commit();
+			HibernateSessionFactory.closeSession();
+			
 			log.debug("delete successful");
 		} catch (RuntimeException re) {
 			log.error("delete failed", re);
@@ -53,7 +66,9 @@ public class GoodDAO extends BaseHibernateDAO {
 	public Good findById(java.lang.Integer id) {
 		log.debug("getting Good instance with id: " + id);
 		try {
-			Good instance = (Good) getSession().get("com.entity.Good", id);
+			Session session = HibernateSessionFactory.getSession();
+			Good instance = (Good) session.get("com.entity.Good", id);
+			HibernateSessionFactory.closeSession();
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

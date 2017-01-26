@@ -42,4 +42,18 @@ public class UserDAOTest {
 		//assertTrue(userDAO.tryLogin("user1", "222"));
 		//assertTrue(userDAO.tryLogin("user10", "111"));
 	}
+	
+	@Test
+	public void testSave() {
+		User user = new User("user6", "111");
+		//user.setUserId(4);
+		userDAO.save(user);
+	}
+	
+	@Test
+	public void testDelete() {
+		User user = userDAO.findById(4);
+		//user.setUserId(4);
+		userDAO.delete(user);
+	}
 }

@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div class=".divcssTop">
-		<form action="servlet/LoginServlet" method="post">
+		<form action="<%=basePath%>servlet/LoginServlet" method="post">
 		   	用户名:<input type="text" name="userName"/> <br/>
 		   	密码：<input type="password" name="password"/> <br/>
 		   <input type="submit" value="登录"/>

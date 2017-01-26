@@ -44,13 +44,6 @@ public class User implements java.io.Serializable {
 
 	// Property accessors
 
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", userName=" + userName
-				+ ", password=" + password + ", phoneNumber=" + phoneNumber
-				+ ", gender=" + gender + ", userPhoto=" + userPhoto + "]";
-	}
-
 	public Integer getUserId() {
 		return this.userId;
 	}

@@ -8,9 +8,9 @@
     <class name="com.entity.Good" table="good" catalog="stshibernatedb">
         <id name="goodId" type="java.lang.Integer">
             <column name="goodId" />
-            <generator class="native" />
+            <generator class="increment" />
         </id>
-        <many-to-one name="user" class="com.entity.User" fetch="select">
+        <many-to-one name="user" class="com.entity.User">
             <column name="userId" />
         </many-to-one>
         <property name="name" type="java.lang.String">
@@ -21,6 +21,9 @@
         </property>
         <property name="pictures" type="java.lang.String">
             <column name="pictures" not-null="true" />
+        </property>
+        <property name="freight" type="java.lang.Double">
+            <column name="freight" precision="20" scale="0" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

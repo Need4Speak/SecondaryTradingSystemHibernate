@@ -20,8 +20,10 @@
 		<property name="myeclipse.connection.profile">
 			MySQLDriver
 		</property>
+		<property name="show_sql">true</property>
 		<mapping resource="com/entity/User.hbm.xml" />
 		<mapping resource="com/entity/Good.hbm.xml" />
+		<mapping resource="com/entity/Order.hbm.xml" />
 
 	</session-factory>
 

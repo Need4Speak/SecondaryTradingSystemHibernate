@@ -54,7 +54,7 @@ session.setAttribute("basePath", basePath);
 	
 		  <tr>
 		    <td width="125px"><a href="<%=basePath %>/index.jsp">返回</a></td>
-		    <td width="125px">购买</td>
+		    <td width="125px"><a href="<%=basePath %>servlet/PlaceOrderServlet?goodId=<%=good.getGoodId()%>">购买</a></td>
 		  </tr>
 		
 		</table>

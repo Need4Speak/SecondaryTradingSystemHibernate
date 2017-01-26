@@ -13,6 +13,7 @@ public class Good implements java.io.Serializable {
 	private String name;
 	private Double price;
 	private String pictures;
+	private Double freight;
 
 	// Constructors
 
@@ -21,18 +22,30 @@ public class Good implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Good(String name, Double price, String pictures) {
+	public Good(String name, Double price, String pictures, Double freight) {
+		this.name = name;
+		this.price = price;
+		this.pictures = pictures;
+		this.freight = freight;
+	}
+	
+	
+	public Good(User user, String name, Double price, String pictures) {
+		super();
+		this.user = user;
 		this.name = name;
 		this.price = price;
 		this.pictures = pictures;
 	}
 
 	/** full constructor */
-	public Good(User user, String name, Double price, String pictures) {
+	public Good(User user, String name, Double price, String pictures,
+			Double freight) {
 		this.user = user;
 		this.name = name;
 		this.price = price;
 		this.pictures = pictures;
+		this.freight = freight;
 	}
 
 	// Property accessors
@@ -75,6 +88,14 @@ public class Good implements java.io.Serializable {
 
 	public void setPictures(String pictures) {
 		this.pictures = pictures;
+	}
+
+	public Double getFreight() {
+		return this.freight;
+	}
+
+	public void setFreight(Double freight) {
+		this.freight = freight;
 	}
 
 }

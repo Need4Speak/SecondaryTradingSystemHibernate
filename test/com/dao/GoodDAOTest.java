@@ -19,14 +19,15 @@ public class GoodDAOTest {
 		
 		User aUser = (User) session.get(User.class, 2);
 		System.out.println(aUser);
+		transaction.commit();
+		HibernateSessionFactory.closeSession();
 		
-		Good aGood = new Good(aUser, "good10", 100.0, "10.jpg");
+		Good aGood = new Good(aUser, "good10", 100.0, "10.jpg", 1.1);
 		
 		GoodDAO goodDAO = new GoodDAO();
 		goodDAO.save(aGood); 
 		
-		transaction.commit();
-		HibernateSessionFactory.closeSession();
+
 	}
 
 	@Test

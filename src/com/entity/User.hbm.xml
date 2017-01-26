@@ -25,7 +25,7 @@
         <property name="userPhoto" type="java.lang.String">
             <column name="userPhoto" />
         </property>
-        <set name="goods" inverse="true">
+        <set name="goods" inverse="true" lazy="false">
             <key>
                 <column name="userId" />
             </key>

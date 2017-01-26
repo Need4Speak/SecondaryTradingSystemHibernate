@@ -48,11 +48,12 @@ public class LoginServlet extends HttpServlet {
 	    String userName = request.getParameter("userName").trim();
 	    String password = request.getParameter("password").trim();
 	    UserDAO userDAO = new UserDAO();
+	    System.out.println("in loginservlet");
 	    boolean loginCondition = userDAO.tryLogin(userName, password);
 	    if (loginCondition) {
 			request.getSession().setAttribute("userName", userName);
-			//request.getRequestDispatcher("/index.jsp").forward(request, response);
-			response.sendRedirect("../index.jsp");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
+			//response.sendRedirect("../index.jsp");
 		}
 	    else {
 	    	out.println("登录失败!<br>");

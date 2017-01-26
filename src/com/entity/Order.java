@@ -10,7 +10,7 @@ public class Order implements java.io.Serializable {
 
 	// Fields
 
-	private Integer oderId;
+	private Integer orderId;
 	private Integer goodId;
 	private Integer buyerId;
 	private Integer sellerId;
@@ -61,18 +61,18 @@ public class Order implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Order [oderId=" + oderId + ", goodId=" + goodId + ", buyerId="
+		return "Order [orderId=" + orderId + ", goodId=" + goodId + ", buyerId="
 				+ buyerId + ", sellerId=" + sellerId + ", creationTime="
 				+ creationTime + ", cancelTime=" + cancelTime + ", status="
 				+ status + ", freight=" + freight + "]";
 	}
 
-	public Integer getOderId() {
-		return this.oderId;
+	public Integer getOrderId() {
+		return this.orderId;
 	}
 
-	public void setOderId(Integer oderId) {
-		this.oderId = oderId;
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
 	}
 
 	public Integer getGoodId() {

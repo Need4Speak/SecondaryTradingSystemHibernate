@@ -10,7 +10,7 @@
             <column name="goodId" />
             <generator class="increment" />
         </id>
-        <many-to-one name="user" class="com.entity.User">
+        <many-to-one name="user" class="com.entity.User" lazy="false">
             <column name="userId" />
         </many-to-one>
         <property name="name" type="java.lang.String">

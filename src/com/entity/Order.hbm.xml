@@ -6,8 +6,8 @@
 -->
 <hibernate-mapping>
     <class name="com.entity.Order" table="order_table" catalog="stshibernatedb">
-        <id name="oderId" type="java.lang.Integer">
-            <column name="oderId" />
+        <id name="orderId" type="java.lang.Integer">
+            <column name="orderId" />
             <generator class="increment" />
         </id>
         <property name="goodId" type="java.lang.Integer">

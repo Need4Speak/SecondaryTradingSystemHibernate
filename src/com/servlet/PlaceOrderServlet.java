@@ -15,6 +15,7 @@ import com.dao.OrderDAO;
 import com.dao.UserDAO;
 import com.entity.Good;
 import com.entity.Order;
+import com.entity.OrderDetial;
 import com.entity.User;
 
 /**
@@ -71,6 +72,11 @@ public class PlaceOrderServlet extends HttpServlet {
 					seller.getUserId(), new Date(), good.getFreight());
 
 			orderDAO.save(order);
+			// Add object orderDetial in request, send this object to placeOrder.jsp
+			OrderDetial orderDetial = new OrderDetial(order.getOrderId(),
+					good.getName(), buyer.getUserName(), seller.getUserName(),
+					order.getCreationTime(), order.getFreight());
+			request.setAttribute("orderDetial", orderDetial);
 			System.out.println(order);
 			dispatchUrl = "/placeOrder.jsp";
 		}
